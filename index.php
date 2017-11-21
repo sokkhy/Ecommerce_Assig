@@ -1,23 +1,11 @@
 <HTML>
 <HEAD>
-<TITLE>AJAX Pagination with PHP</TITLE>
-<style>
-body{width:600px;font-family:"Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif;font-size:14px;}
-.link {padding: 10px 15px;background: transparent;border:#bccfd8 1px solid;border-left:0px;cursor:pointer;color:#607d8b}
-.disabled {cursor:not-allowed;color: #bccfd8;}
-.current {background: #bccfd8;}
-.first{border-left:#bccfd8 1px solid;}
-.question {font-weight:bold;}
-.answer{padding-top: 10px;}
-#pagination{margin-top: 20px;padding-top: 30px;border-top: #F0F0F0 1px solid;}
-.dot {padding: 10px 15px;background: transparent;border-right: #bccfd8 1px solid;}
-#overlay {background-color: rgba(0, 0, 0, 0.6);z-index: 999;position: absolute;left: 0;top: 0;width: 100%;height: 100%;display: none;}
-#overlay div {position:absolute;left:50%;top:50%;margin-top:-32px;margin-left:-32px;}
-.page-content {padding: 20px;margin: 0 auto;}
-.pagination-setting {padding:10px; margin:5px 0px 10px;border:#bccfd8  1px solid;color:#607d8b;}
-</style>
-<script src="http://code.jquery.com/jquery-2.1.1.js"></script>
-<link rel="stylesheet" href="style.css">
+<TITLE>test</TITLE>
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
 <script>
 function getresult(url) {
 	$.ajax({
@@ -41,10 +29,8 @@ function changePagination(option) {
 </script>
 </HEAD>
 <BODY>
-		<style>
-    <?php include 'style.css'; ?>
-	</style>
-	<div class="main">
+  <style><?php include 'style.css';?></style>
+  <div id="main">
 	<div id="sideNav" style="background-color: white; z-index: 1;">
      <span style="font-size:30px;cursor:pointer" onclick="openNav()" id="showhide">&#9776; open</span>
   
@@ -70,7 +56,7 @@ function changePagination(option) {
 	</div>
 <div id="overlay"><div><img src="loading.gif" width="64px" height="64px"/></div></div>
 <div class="page-content">
-	<div style="border-bottom: #F0F0F0 1px solid;margin-bottom: 15px;">
+	<div style="border-bottom: #F0F0F0 1px solid;margin-bottom: 15px;margin-left: 572px;">
 	Pagination Setting:<br> <select name="pagination-setting" onChange="changePagination(this.value);" class="pagination-setting" id="pagination-setting">
 	<option value="all-links">Display All Page Link</option>
 	<option value="prev-next">Display Prev Next Only</option>
