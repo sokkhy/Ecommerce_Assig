@@ -4,7 +4,7 @@ require_once("pagination.class.php");
 $db_handle = new DBController();
 $perPage = new PerPage();
 
-$sql = "SELECT * from shirtID";
+$sql = "SELECT * from shirt";
 $paginationlink = "getresult.php?page=";	
 $pagination_setting = $_GET["pagination_setting"];
 				
@@ -35,12 +35,13 @@ foreach($faq as $k=>$v) {
  $output .= '<div class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</div>';
  $output .= ' <div class="shirt shirt_brand">Brand:' . $faq[$k]["shirtName"] . '</div>';
  $output .= '<div class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</div>';
- $output.= "<div>".
+ $output.= "<div class='cover_imgShirt'>".
                     "<img id ='imgshirt' src='uploads/".$faq[$k]['image']."'/>".        
                 "</div>";
 }
 if(!empty($perpageresult)) {
 $output .= '<div id="pagination">' . $perpageresult . '</div>';
 }
+
 print $output;
 ?>

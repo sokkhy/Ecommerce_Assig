@@ -131,8 +131,11 @@ table tr td{
     margin-left: 0px;
 }
 #imgshirt{
-	width: 350px;
-	height:300px;
+    width: 100%;
+}
+.cover_imgShirt{
+    width: 31%;
+    margin-left: 70px;
 }
 .nav{
     width:750px;
