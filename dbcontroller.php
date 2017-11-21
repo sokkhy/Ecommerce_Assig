@@ -53,6 +53,6 @@ class DBController {
     $Price = $_POST["price"];
     $image= $_FILES["fileToUpload"]["name"];
     $stmt->execute();
-    header('Location:http://localhost:8082/test /index.php');
+    header('Location:http://localhost:8082/test/index.php');
   }
 ?>
