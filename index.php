@@ -36,11 +36,9 @@ function changePagination(option) {
   
 
     <div id="navbar">
-		  <a class="active" href="javascript:void(0)">Home</a>
-		  <a href="javascript:void(0)">News</a>
-		  <a href="javascript:void(0)">Contact</a>
-
-      <a href="about.php">About</a>
+		  <a class="active" href="javascript:void(0)">Open</a>
+		  <a href="javascript:void(0)">Nike</a>
+		  <a href="javascript:void(0)">C</a>
 		</div>
 	</div>
 	
@@ -56,16 +54,17 @@ function changePagination(option) {
 	</div>
 <div id="overlay"><div><img src="loading.gif" width="64px" height="64px"/></div></div>
 <div class="page-content">
-	<div style="border-bottom: #F0F0F0 1px solid;margin-bottom: 15px;margin-left: 572px;">
+	<div style="border-bottom: #F0F0F0 1px solid;margin-bottom: 15px; display: none;">
 	Pagination Setting:<br> <select name="pagination-setting" onChange="changePagination(this.value);" class="pagination-setting" id="pagination-setting">
-	<option value="all-links">Display All Page Link</option>
-	<option value="prev-next">Display Prev Next Only</option>
+	<option value="all-links">Display All Page Link</option> 
+	<!-- <option value="prev-next">Display Prev Next Only</option> -->
 	</select>
 	</div>
 	
-	<div id="pagination-result">
-	<input type="hidden" name="rowcount" id="rowcount" />
+	<div class="row" id="pagination-result">
+		<input type="hidden" name="rowcount" id="rowcount" />
 	</div>
+	
 </div>
 </div>
 <script>

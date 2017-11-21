@@ -3,7 +3,7 @@ class PerPage {
 	public $perpage;
 	
 	function __construct() {
-		$this->perpage = 1;
+		$this->perpage = 2;
 	}
 	
 	function getAllPageLinks($count,$href) {
@@ -13,9 +13,9 @@ class PerPage {
 			$pages  = ceil($count/$this->perpage);
 		if($pages>1) {
 			if($_GET["page"] == 1) 
-				$output = $output . '<span class="link first disabled">&#8810;</span><span class="link disabled">&#60;</span>';
+				$output = $output . '<span class="link first disabled">First</span><span class="link disabled">Previous</span>';
 			else	
-				$output = $output . '<a class="link first" onclick="getresult(\'' . $href . (1) . '\')" >&#8810;</a><a class="link" onclick="getresult(\'' . $href . ($_GET["page"]-1) . '\')" >&#60;</a>';
+				$output = $output . '<a class="link first" onclick="getresult(\'' . $href . (1) . '\')" >First</a><a class="link" onclick="getresult(\'' . $href . ($_GET["page"]-1) . '\')" >Previous</a>';
 			
 			
 			if(($_GET["page"]-3)>0) {
@@ -48,9 +48,9 @@ class PerPage {
 			}
 			
 			if($_GET["page"] < $pages)
-				$output = $output . '<a  class="link" onclick="getresult(\'' . $href . ($_GET["page"]+1) . '\')" >></a><a  class="link" onclick="getresult(\'' . $href . ($pages) . '\')" >&#8811;</a>';
+				$output = $output . '<a  class="link" onclick="getresult(\'' . $href . ($_GET["page"]+1) . '\')" >Next</a><a  class="link" onclick="getresult(\'' . $href . ($pages) . '\')" >Last</a>';
 			else				
-				$output = $output . '<span class="link disabled">></span><span class="link disabled">&#8811;</span>';
+				$output = $output . '<span class="link disabled">Next</span><span class="link disabled">Last</span>';
 			
 			
 		}
@@ -63,14 +63,14 @@ class PerPage {
 			$pages  = ceil($count/$this->perpage);
 		if($pages>1) {
 			if($_GET["page"] == 1) 
-				$output = $output . '<span class="link disabled first">Prev</span>';
+				$output = $output . '<span class="link disabled first prev">Prev</span>';
 			else	
-				$output = $output . '<a class="link first" onclick="getresult(\'' . $href . ($_GET["page"]-1) . '\')" >Prev</a>';			
+				$output = $output . '<a class="link first prev" onclick="getresult(\'' . $href . ($_GET["page"]-1) . '\')" >Prev</a>';			
 			
 			if($_GET["page"] < $pages)
-				$output = $output . '<a  class="link" onclick="getresult(\'' . $href . ($_GET["page"]+1) . '\')" >Next</a>';
+				$output = $output . '<a  class="link next" onclick="getresult(\'' . $href . ($_GET["page"]+1) . '\')" >Next</a>';
 			else				
-				$output = $output . '<span class="link disabled">Next</span>';
+				$output = $output . '<span class="link disabled next">Next</span>';
 			
 			
 		}

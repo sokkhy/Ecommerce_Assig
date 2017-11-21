@@ -32,12 +32,16 @@ if($pagination_setting == "prev-next") {
 
 $output = '';
 foreach($faq as $k=>$v) {
+ 
+ $output.="<div class='col-sm-4'>";
  $output .= '<div class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</div>';
  $output .= ' <div class="shirt shirt_brand">Brand:' . $faq[$k]["shirtName"] . '</div>';
  $output .= '<div class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</div>';
  $output.= "<div class='cover_imgShirt'>".
                     "<img id ='imgshirt' src='uploads/".$faq[$k]['image']."'/>".        
                 "</div>";
+ $output.="</div>";
+  
 }
 if(!empty($perpageresult)) {
 $output .= '<div id="pagination">' . $perpageresult . '</div>';
