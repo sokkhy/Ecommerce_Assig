@@ -32,20 +32,23 @@ if($pagination_setting == "prev-next") {
 
 $output = '';
 foreach($faq as $k=>$v) {
- 
+
  $output.="<div class='col-sm-4'>";
- $output .= '<div class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</div>';
- $output .= ' <div class="shirt shirt_brand">Brand:' . $faq[$k]["shirtName"] . '</div>';
- $output .= '<div class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</div>';
+ $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
+ $output .= ' <span class="shirt shirt_brand">Brand:' . $faq[$k]["shirtName"] . '</span><br>';
+ $output .= '<span class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</span>';
  $output.= "<div class='cover_imgShirt'>".
                     "<img id ='imgshirt' src='uploads/".$faq[$k]['image']."'/>".        
                 "</div>";
  $output.="</div>";
   
 }
+print $output;
+$outputpage="";
 if(!empty($perpageresult)) {
-$output .= '<div id="pagination">' . $perpageresult . '</div>';
+
+$outputpage .= '<div id="pagination">' . $perpageresult . '</div>';
 }
 
-print $output;
+print $outputpage;
 ?>

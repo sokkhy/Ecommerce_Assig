@@ -16,7 +16,7 @@
 	<div id="navbar" style="z-index: 1;margin-top: 100px;width: 90%;">
 	  <a class="active" href="javascript:void(0)">Home</a>
 	  <a href="javascript:void(0)">Product</a>
-	  <a href="javascript:void(0)">About US</a>
+	  <a href="javascript:void(0)"></a>
 	</div>
 <script>
 var navbar = document.getElementById("navbar");

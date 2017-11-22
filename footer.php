@@ -19,6 +19,8 @@
 	display: block;
 }
 .footer {
+	margin-top: 65px;
+
 	background: #EDEFF1;
 	height: auto;
 	padding-bottom: 30px;
@@ -151,32 +153,32 @@
 <footer>
     <div class="footer" id="footer">
         <div class="container">
-            <div class="row">
+            <div class="row" style="">
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> About Us</h3>
                     <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> Terms of Use </h3>
                     <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
                     <h3> Privacy Policy </h3>
                     <ul>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
-                        <li> <a href="#"> Lorem Ipsum </a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
+                        <li> <a href="#"></a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">

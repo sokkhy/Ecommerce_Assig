@@ -8,7 +8,7 @@ Author URI: http://omarlmeas.tk
 Version: 0.0
 */
 body {
-  width: 80%
+ 
   height:500px;
   margin: 0;
   font-size: 28px;
@@ -130,7 +130,7 @@ table tr td{
     width: 100%;
 }
 .cover_imgShirt{
-    width: 31%;
+    width: 60%;
     margin-left: 70px;
 }
 .nav{
@@ -228,11 +228,13 @@ body{
 }
 
 #pagination{
- margin-top: 519px;
+
     padding-top: 30px;
     border-top: #F0F0F0 1px solid;
     height: 100px;
-    margin-left: 489px;
+    float: left;
+    margin-top: 104px;
+    margin-left: -340px;
 }
 .dot {
   padding: 10px 15px;
@@ -256,6 +258,7 @@ body{
 .page-content {
   padding: 20px;
   margin: 0 auto;
+  
 
 }
 .pagination-setting {
