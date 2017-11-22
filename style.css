@@ -23,6 +23,7 @@ body {
 #navbar {
   overflow: hidden;
   background-color: #333;
+  width: 90%;
 }
 
 #navbar a {
@@ -33,6 +34,7 @@ body {
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+
 
 }
 
@@ -48,12 +50,6 @@ body {
 
 .content {
   padding: 16px;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
 }
 .stick{
 	 position: fixed;
@@ -275,4 +271,7 @@ body{
 .next{
     margin-left: 171px;
     border: 2px solid;
+}
+#paging-setting{
+  display: none;
 }

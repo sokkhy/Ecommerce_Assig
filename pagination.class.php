@@ -3,7 +3,7 @@ class PerPage {
 	public $perpage;
 	
 	function __construct() {
-		$this->perpage = 2;
+		$this->perpage = 14;
 	}
 	
 	function getAllPageLinks($count,$href) {
