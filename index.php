@@ -47,10 +47,10 @@ function changePagination(option) {
 			<!-- <option value="prev-next">Display Prev Next Only</option> -->
 			</select>
 		</div>
-		<div class="row">
-			 <div id="pagination-result">
+		<div class="row" id="pagination-result">
+			 
 			 	<input type="hidden" name="rowcount" id="rowcount" />
-			 </div>
+			
 			
 		</div>
 	

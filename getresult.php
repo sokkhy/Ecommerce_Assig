@@ -43,12 +43,12 @@ foreach($faq as $k=>$v) {
  $output.="</div>";
   
 }
-print $output;
-$outputpage="";
+
+
 if(!empty($perpageresult)) {
 
-$outputpage .= '<div id="pagination">' . $perpageresult . '</div>';
+$output .= '<div id="pagination">' . $perpageresult . '</div>';
 }
 
-print $outputpage;
+print $output;
 ?>

@@ -13,7 +13,11 @@
 	</style>
 </head>
 <body>
-	<div id="navbar" style="z-index: 1;margin-top: 100px;width: 90%;">
+	<!-- <div class="mainlogo" style="width: 90%;
+    background: rgb(208, 15, 15);">
+		<img src="mainlogo.png" alt="" style="width: 20%;">
+	</div> -->
+	<div id="navbar" style="z-index: 1;width: 90%;">
 	  <a class="active" href="javascript:void(0)">Home</a>
 	  <a href="javascript:void(0)">Product</a>
 	  <a href="javascript:void(0)"></a>

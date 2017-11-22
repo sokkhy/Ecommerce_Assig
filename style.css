@@ -19,13 +19,10 @@ body {
   padding: 30px;
   text-align: center;
 }
-
 #navbar {
   overflow: hidden;
   background-color: #333;
-  width: 90%;
 }
-
 #navbar a {
   float: left;
   display: block;
