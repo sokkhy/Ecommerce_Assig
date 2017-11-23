@@ -6,18 +6,18 @@
 	<link rel="stylesheet" href="style.css">
 	<style>
 		.sticky{
-			 position: fixed;
-  				top: 0;
+			position: fixed;
+  			top: 0;
 			width: 100%;
 		}
 	</style>
 </head>
 <body>
-	<div class="mainlogo" style="width: 90%;
+	<div class="mainlogo" style="width: 93%;
     background: rgb(208, 15, 15);">
-		<img src="mainlogo.png" alt="" style="width: 20%;">
+		<img src="mainlogo.png" alt="" style="width: 20%;margin-bottom:auto;">
 	</div>
-	<div id="navbar" style="z-index: 1;width: 90%;">
+	<div id="navbar" style="z-index: 1;width: 93%;">
 	  <a class="active" href="javascript:void(0)">Home</a>
 	  <a href="javascript:void(0)">Product</a>
 	  <a href="javascript:void(0)"></a>
@@ -30,12 +30,12 @@ function myFunction() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
     navbar.style.top ='-110px';
-    navbar.style.width ='70%';
+    navbar.style.width ='72.4%';
     navbar.style.marginTop="110px";
   } else {
     navbar.classList.remove("sticky");
-    navbar.style.width ='90%';
-     navbar.style.marginTop="0";
+    navbar.style.width ='93%';
+    navbar.style.marginTop="0";
   }
 }
 

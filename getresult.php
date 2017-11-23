@@ -47,8 +47,10 @@ foreach($faq as $k=>$v) {
 
 if(!empty($perpageresult)) {
 
-$output .= '<div id="pagination">' . $perpageresult . '</div>';
+$output .= '<div id ="p" class="pagination" style="margin-left: -36px;">' . $perpageresult . '</div>';
 }
-
+// if($perpageresult > 14){
+// 	$output .= '<div id="pagelessrecord">' . $perpageresult . '</div>';
+// }
 print $output;
 ?>

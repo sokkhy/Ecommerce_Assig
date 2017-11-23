@@ -6,7 +6,9 @@
 
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  	 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<link rel="stylesheet" href="style.css">
+
 	<style><?php include 'style.css';?></style>
 	<style>
 		body{
@@ -34,6 +36,28 @@ function changePagination(option) {
 	}
 }
 </script>
+<!-- <script>	
+			$(document).ready(function(){
+				$(".link").click(function(){
+
+				
+				setTimeout(function() {
+		                if($(".maindiv").children().length>10){
+					alert($(".maindiv").children().length);
+					 $("#p").remove("pagination");			
+				}
+				else if($(".maindiv").children().length<10){
+					$("#p").addClass("pagelessrecord");}
+		            },
+		            100);
+				});
+				
+
+
+
+			})
+		
+	</script> -->
 </HEAD>
 <BODY onscroll="myFunction()">
   
@@ -47,20 +71,23 @@ function changePagination(option) {
 			<!-- <option value="prev-next">Display Prev Next Only</option> -->
 			</select>
 		</div>
-		<div class="row" id="pagination-result">
+		<div class="row maindiv" id="pagination-result">
 			 
 			 	<input type="hidden" name="rowcount" id="rowcount" />
-			
-			
 		</div>
-	
 
-		
 	 </div>
   </div>
 <?php include 'footer.php';?>
 <script>
 getresult("getresult.php");
+</script>
+
+<script>	
+
+
+
+
 </script>
 </BODY>
 </HTML>

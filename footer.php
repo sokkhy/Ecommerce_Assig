@@ -20,12 +20,12 @@
 }
 .footer {
 	margin-top: 65px;
-
-	background: #EDEFF1;
+	margin-left: 17px;
+	background: rgb(208, 15, 15);
 	height: auto;
 	padding-bottom: 30px;
 	position: relative;
-	width: 100%;
+	width: 93%;
 	border-bottom: 1px solid #CCCCCC;
 	border-top: 1px solid #DDDDDD;
 }
@@ -37,7 +37,7 @@
 }
 .footer h3 {
 	border-bottom: 1px solid #BAC1C8;
-	color: #54697E;
+	color: #fff;
 	font-size: 18px;
 	font-weight: 600;
 	line-height: 27px;
@@ -50,14 +50,16 @@
 	margin-left: 0;
 	padding-left: 0;
 	margin-top: 15px;
-	color: #7F8C8D;
+	color: #fff;
 }
+
 .footer ul li a {
 	padding: 0 0 5px 0;
 	display: block;
 }
 .footer a {
-	color: #78828D
+	color: #fff;
+	font-size: 1.2em;
 }
 .supportLi h4 {
 	font-size: 20px;
@@ -134,17 +136,18 @@
 	margin: 0 0 0 5px;
 	color: #EDEFF1 !important;
 }
-.footer-bottom {
-	background: #E3E3E3;
-	border-top: 1px solid #DDDDDD;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-.footer-bottom p.pull-left {
+
+.pull-left {
 	padding-top: 6px;
+	color: white;
+	font-size: 1.2em;
 }
-.payments {
-	font-size: 1.5em;	
+.paymenthod {
+	width:80px;
+
+}
+.payment{
+	text-align: center;
 }
 </style>
 </head>
@@ -163,35 +166,30 @@
                         <li> <a href="#"></a> </li>
                     </ul>
                 </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Terms of Use </h3>
+                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6" style="width: 252px;">
+                    <h3> Terms and Condition </h3>
                     <ul>
-                        <li> <a href="#"></a> </li>
-                        <li> <a href="#"></a> </li>
-                        <li> <a href="#"></a> </li>
-                        <li> <a href="#"></a> </li>
-                    </ul>
-                </div>
-                <div class="col-lg-2  col-md-2 col-sm-4 col-xs-6">
-                    <h3> Privacy Policy </h3>
-                    <ul>
-                        <li> <a href="#"></a> </li>
-                        <li> <a href="#"></a> </li>
-                        <li> <a href="#"></a> </li>
-                        <li> <a href="#"></a> </li>
+                        <li> <a href="termofuse.html">Term of Use</a> </li>                    
+                        <li> <a href="termofcondition.html">Term of Condition</a> </li>
+                        <li> <a href="termofservice.html">Term of Service</a> </li>
+                        <li> <a href="policy.html">Pravacy Policy</a></li>
+ 
                     </ul>
                 </div>
                 <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12 ">
                     <h3> Contact Us </h3>
+                    <p style="color: white; font-size: 1.2em;">Tel: (+855)10-910-651</p>
+
                     <ul>
                         <li>
                             <div class="input-append newsletter-box text-center">
-                                <input type="text" class="full text-center" placeholder="Email ">
-                                <button class="btn  bg-gray" type="button"> Send <i class="fa fa-long-arrow-right"> </i> </button>
+                                <textarea rows="4" cols="50" style=" height: 200px; color: black;"></textarea>
+                                <button class="btn  bg-gray" type="button" style="color: red; font-weight: bold; background-color: white; width: 80px; height: 40px;"> Send <i class="fa fa-long-arrow-right"> </i> </button>
                             </div>
                         </li>
                     </ul>
                     <ul class="social">
+                    	<h4>Connect Us on Social Media</h4>
                         <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
                         <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
                         <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>
@@ -199,25 +197,27 @@
                         <li> <a href="#"> <i class="fa fa-youtube">   </i> </a> </li>
                     </ul>
                 </div>
+                <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12">
+                	<h3>Payment Method </h3>
+                <ul class="" style="display: flex;">
+                	<li class="payment"><img class="paymenthod" src="Visa-icon.png" alt=""> Visa Card</li>
+                    <li class="payment"><img class="paymenthod" src="Master-Card-icon.png" alt="">Master Card</li>
+                    <li class="payment"><img class="paymenthod" src="paypal.PNG" alt=""> PayPal</li>
+                </ul> 
+            </div>
             </div>
             <!--/.row--> 
+            <div class="container">
+            <p class="pull-left"> Copyright © 4Shops. All right reserved. </p>
+            
+        </div>
         </div>
         <!--/.container--> 
     </div>
     <!--/.footer-->
     
     <div class="footer-bottom">
-        <div class="container">
-            <p class="pull-left"> Copyright © 4Shops. All right reserved. </p>
-            <div class="pull-right">
-                <ul class="nav nav-pills payments">
-                	<li><i class="fa fa-cc-visa"></i></li>
-                    <li><i class="fa fa-cc-mastercard"></i></li>
-                    <li><i class="fa fa-cc-amex"></i></li>
-                    <li><i class="fa fa-cc-paypal"></i></li>
-                </ul> 
-            </div>
-        </div>
+        
     </div>
     <!--/.footer-bottom--> 
 </footer>

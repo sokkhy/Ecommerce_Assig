@@ -129,6 +129,7 @@ table tr td{
 .cover_imgShirt{
     width: 60%;
     margin-left: 70px;
+    cursor:pointer;
 }
 .nav{
     width:750px;
@@ -189,9 +190,6 @@ table tr td{
   margin-left: auto;
    padding: 10px;
 }
-.subImg{
-
-}
 body{
  
   width:80%;
@@ -224,14 +222,14 @@ body{
   color: red;
 }
 
-#pagination{
+.pagination{
 
     padding-top: 30px;
     border-top: #F0F0F0 1px solid;
     height: 100px;
     float: left;
     margin-top: 104px;
-    margin-left: -340px;
+    
 }
 .dot {
   padding: 10px 15px;
@@ -274,4 +272,12 @@ body{
 }
 #paging-setting{
   display: none;
+}
+.pagelessrecord{
+  padding-top: 30px;
+    border-top: #F0F0F0 1px solid;
+    height: 100px;
+    float: left;
+    margin-top: 1170px;
+    margin-left: 14px;
 }
