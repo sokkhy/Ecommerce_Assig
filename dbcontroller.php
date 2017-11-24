@@ -31,6 +31,7 @@ class DBController {
 		return $rowcount;	
 	}
 }
+class InsertNew{
 	 $host = "localhost";
 	 $user = "root";
 	 $password = "";
@@ -53,6 +54,8 @@ class DBController {
     $Price = $_POST["price"];
     $image= $_FILES["fileToUpload"]["name"];
     $stmt->execute();
-    header('Location:http://localhost:8082/test/index.php');
+    header('Location:http://localhost:8082/4Shops/index.php');
   }
+ }
+ exit();
 ?>

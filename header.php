@@ -20,16 +20,16 @@
 	<div id="navbar" style="z-index: 1;width: 93%;">
 	  <a href="index.php">Home</a>
 	  <a href="adidas.php" id="adidas">Adidas</a>
-	  <a href="javascript:void(0)" id="nike">Nike</a>
-	  <a href="javascript:void(0)" id="gucci">Gucci</a>
-	  <a href="javascript:void(0)" id="prada">Prada</a>
-	  <a href="javascript:void(0)" id="supreme">Supreme</a>
-	  <a href="javascript:void(0)" id="tommy_hilfiger">Tommy Hilfiger</a>
-	  <a href="javascript:void(0)" id="versace">Versace</a>
-	  <a href="javascript:void(0)" id="diesel">Diesel</a>
-	  <a href="javascript:void(0)" id="hugo_boss">Hugo Boss</a>
-	  <a href="javascript:void(0)" id="udner_armour">Under Armour</a>
-	  <a href="javascript:void(0)" id="puma_se">Puma SE</a>
+	  <a href="nike.php" id="nike">Nike</a>
+	  <a href="gucci.php" id="gucci">Gucci</a>
+	  <a href="prada.php" id="prada">Prada</a>
+	  <a href="supreme.php" id="supreme">Supreme</a>
+	  <a href="tommy_hilfiger.php" id="tommy_hilfiger">Tommy Hilfiger</a>
+	  <a href="diesel.php" id="versace">Versace</a>
+	  <a href="diesel.php" id="diesel">Diesel</a>
+	  <a href="hugo_boss.php" id="hugo_boss">Hugo Boss</a>
+	  <a href="under_armour.php" id="udner_armour">Under Armour</a>
+	  <a href="puma.php" id="puma_se">Puma SE</a>
 
 
 
