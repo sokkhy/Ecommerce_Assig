@@ -11,12 +11,13 @@ require_once("dbcontroller.php");
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="style.css">
+
+  <style><?php include 'style/style.css';?></style>
 </head>
 <body>
 	
 	   <div class="container">
-		  <form class="form-inline" action="upload.php" method="post" enctype="multipart/form-data">
+		  <form class="form-inline form" action="upload.php" method="post" enctype="multipart/form-data" style="display: inline-grid;">
 		    <div class="form-group">
 		    
 		      Shirt Brand: <input type="text" class="form-control" id="shirt_name"  name="shirtname">
@@ -32,7 +33,8 @@ require_once("dbcontroller.php");
 		    <div class="form-group">
 		      <input type="file" name="fileToUpload" id="fileUpload">
 			</div>
-			  <input type="submit" value="Submit">
+			  <input type="submit" value="Submit" style="width: 90px;
+    margin-left: 10px;">
 			<div id="image-holder">Display image</div>
 		     
 		   </form> 

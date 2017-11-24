@@ -19,15 +19,15 @@
 	display: block;
 }
 .footer {
-	margin-top: 65px;
-	margin-left: 17px;
-	background: rgb(208, 15, 15);
-	height: auto;
-	padding-bottom: 30px;
-	position: relative;
-	width: 93%;
-	border-bottom: 1px solid #CCCCCC;
-	border-top: 1px solid #DDDDDD;
+	margin-top: 415px;
+    margin-left: 17px;
+    background: rgb(208, 15, 15);
+    height: auto;
+    padding-bottom: -46px;
+    position: relative;
+    width: 93%;
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 1px solid #DDDDDD
 }
 .footer p {
 	margin: 0;
@@ -201,8 +201,8 @@
                 	<h3>Payment Method </h3>
                 <ul class="" style="display: flex;">
                 	<li class="payment"><img class="paymenthod" src="image/Visa-icon.png" alt=""> Visa Card</li>
-                    <li class="payment"><img class="paymenthod" src="Master-Card-icon.png" alt="">Master Card</li>
-                    <li class="payment"><img class="paymenthod" src="paypal.PNG" alt=""> PayPal</li>
+                    <li class="payment"><img class="paymenthod" src="image/Master-Card-icon.png" alt="">Master Card</li>
+                    <li class="payment"><img class="paymenthod" src="image/paypal.PNG" alt=""> PayPal</li>
                 </ul> 
             </div>
             </div>
