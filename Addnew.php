@@ -1,8 +1,4 @@
 
-<?php
-require_once("dbcontroller.php");
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +29,11 @@ require_once("dbcontroller.php");
 	   		<option value="under_armour">Under Armour</option>
 	   		<option value="puma">Puma</option>
 	   	</select>
-	   	<?php include'dbcontroller.php'; ?>
+	   	
+<?php
+require_once("dbcontroller.php");
+
+?>
 		    <div class="form-group">
 		    
 		      Shirt Brand: <input type="text" class="form-control" id="shirt_name"  name="shirtname">

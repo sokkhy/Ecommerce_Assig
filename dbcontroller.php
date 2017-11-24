@@ -32,15 +32,15 @@ class DBController {
 	}
 
 }
-$host = "localhost";
+	$host = "localhost";
 	 $user = "root";
 	 $password = "";
 	 $database = "dbkeybest";
 if(isset($_POST['submit'])){
 	if(!empty($_POST['brand'])){
-echo "<span>Please the Brand </span>";
-foreach ($_POST['brand'] as $brand{
- 
+	echo "<span>Please the Brand </span>";
+	foreach ($_POST['brand'] as $brand){
+ echo "<span> .$brand.</span>";
   $conn = new mysqli($host, $user, $password, $database);
   // Check connection
   if ($conn->connect_error) {
@@ -58,8 +58,8 @@ foreach ($_POST['brand'] as $brand{
     $image= $_FILES["fileToUpload"]["name"];
     $stmt->execute();
     header('Location:http://localhost:8082/4Shops/index.php');
+    }
    }
-}
   }
  }
 ?>
