@@ -17,7 +17,23 @@ require_once("dbcontroller.php");
 <body>
 	
 	   <div class="container">
+
+
 		  <form class="form-inline form" action="upload.php" method="post" enctype="multipart/form-data" style="display: inline-grid;">
+		  	<select multiple name="brand[]">
+	   		<option value="adidas">Adidas</option>
+	   		<option value="nike">Nike</option>
+	   		<option value="gucci">Gucci</option>
+	   		<option value="prada">Prada</option>
+	   		<option value="supreme">Supreme</option>
+	   		<option value="tommy_hilfiger">Tommy Hilfiger</option>
+	   		<option value="versace">Versace</option>
+	   		<option value="diesel">Diesel</option>
+	   		<option value="hugo_boss">Hugo Boss</option>
+	   		<option value="under_armour">Under Armour</option>
+	   		<option value="puma">Puma</option>
+	   	</select>
+	   	<?php include'dbcontroller.php'; ?>
 		    <div class="form-group">
 		    
 		      Shirt Brand: <input type="text" class="form-control" id="shirt_name"  name="shirtname">
