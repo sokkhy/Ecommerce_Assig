@@ -30,8 +30,9 @@ class DBController {
 		$rowcount = mysqli_num_rows($result);
 		return $rowcount;	
 	}
+
 }
-class InsertNew{
+
 	 $host = "localhost";
 	 $user = "root";
 	 $password = "";
@@ -56,6 +57,6 @@ class InsertNew{
     $stmt->execute();
     header('Location:http://localhost:8082/4Shops/index.php');
   }
- }
- exit();
+ 
+ 
 ?>
