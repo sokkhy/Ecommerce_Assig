@@ -71,6 +71,11 @@ function changePagination(option) {
 			<!-- <option value="prev-next">Display Prev Next Only</option> -->
 			</select>
 		</div>
+<!-- 		<div ng-app="">
+  <p>My first expression: {{ 5 + 5 }}</p>
+		</div>
+ -->
+
 		<div class="row maindiv" id="pagination-result">
 			 
 			 	<input type="hidden" name="rowcount" id="rowcount" />

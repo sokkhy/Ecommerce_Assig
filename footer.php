@@ -200,7 +200,7 @@
                 <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12">
                 	<h3>Payment Method </h3>
                 <ul class="" style="display: flex;">
-                	<li class="payment"><img class="paymenthod" src="Visa-icon.png" alt=""> Visa Card</li>
+                	<li class="payment"><img class="paymenthod" src="image/Visa-icon.png" alt=""> Visa Card</li>
                     <li class="payment"><img class="paymenthod" src="Master-Card-icon.png" alt="">Master Card</li>
                     <li class="payment"><img class="paymenthod" src="paypal.PNG" alt=""> PayPal</li>
                 </ul> 

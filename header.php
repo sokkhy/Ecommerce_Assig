@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style/style.css">
 	<style>
 		.sticky{
 			position: fixed;
@@ -18,7 +18,7 @@
 		<img src="mainlogo.png" alt="" style="width: 20%;margin-bottom:auto;">
 	</div>
 	<div id="navbar" style="z-index: 1;width: 93%;">
-	  <a class="active" href="javascript:void(0)">Home</a>
+	  <a href="index.php">Home</a>
 	  <a href="javascript:void(0)">Product</a>
 	  <a href="javascript:void(0)"></a>
 	</div>
