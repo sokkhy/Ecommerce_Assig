@@ -7,7 +7,11 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<!-- <link rel="stylesheet" href="style/style.css"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
 	<style><?php include 'style/style.css';?></style>
 	<style>
@@ -32,7 +36,7 @@ function getresult(url) {
 }
 function changePagination(option) {
 	if(option!= "") {
-		getresult("getresult.php");
+		getresult("adidas_getresult.php");
 	}
 }
 </script>
@@ -67,7 +71,7 @@ function changePagination(option) {
 	  <div class="page-content" style="margin-left: 100px; height:  1245px;">
 		<div id="paging-setting" style="">
 		Pagination Setting:<br> <select name="pagination-setting" onChange="changePagination(this.value);" class="pagination-setting" id="pagination-setting">
-			<option value="all-links">Display All Page Link</option> 
+			<!-- <option value="all-links">Display All Page Link</option>  -->
 			<!-- <option value="prev-next">Display Prev Next Only</option> -->
 			</select>
 		</div>

@@ -28,11 +28,11 @@ function getresult(url) {
 		},
 		error: function() 
 		{} 	        
-   });
+   }); 
 }
 function changePagination(option) {
 	if(option!= "") {
-		getresult("getresult.php");
+		getresult("nike_getresult.php");
 	}
 }
 </script>
@@ -67,7 +67,7 @@ function changePagination(option) {
 	  <div class="page-content" style="margin-left: 100px; height:  1245px;">
 		<div id="paging-setting" style="">
 		Pagination Setting:<br> <select name="pagination-setting" onChange="changePagination(this.value);" class="pagination-setting" id="pagination-setting">
-			<option value="all-links">Display All Page Link</option> 
+		<!-- 	<option value="all-links">Display All Page Link</option>  -->
 			<!-- <option value="prev-next">Display Prev Next Only</option> -->
 			</select>
 		</div>
@@ -86,6 +86,7 @@ function changePagination(option) {
 <?php include 'footer.php';?>
 <script>
 getresult("nike_getresult.php");
+
 </script>
 
 <script>	

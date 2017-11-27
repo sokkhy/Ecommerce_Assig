@@ -5,8 +5,8 @@ $db_handle = new DBController();
 $perPage = new PerPage();
 
 $sql = "SELECT * from adidas";
-$paginationlink = "getresult.php?page=";	
-// $pagination_setting = $_GET["pagination_setting"];
+$paginationlink = "adidas_getresult.php?page=";	
+$pagination_setting = $_GET["pagination_setting"];
 				
 $page = 1;
 if(!empty($_GET["page"])) {
@@ -23,22 +23,27 @@ if(empty($_GET["rowcount"])) {
 $_GET["rowcount"] = $db_handle->numRows($sql);
 }
 
-// if($pagination_setting == "prev-next") {
-// 	$perpageresult = $perPage->getPrevNext($_GET["rowcount"], $paginationlink,$pagination_setting);	
-// } else {
-// 	$perpageresult = $perPage->getAllPageLinks($_GET["rowcount"], $paginationlink,$pagination_setting);	
-// }
+ if($pagination_setting == "prev-next") {
+	$perpageresult = $perPage->getPrevNext($_GET["rowcount"], $paginationlink,$pagination_setting);	
+} else {
+ 	$perpageresult = $perPage->getAllPageLinks($_GET["rowcount"], $paginationlink,$pagination_setting);	
+ }
 
 
 $output = '';
 foreach($faq as $k=>$v) {
 
- $output.="<div class='col-sm-4'>";
+ $output.="<div class='col-lg-4'>";
  $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
  $output .= ' <span class="shirt shirt_brand">Brand:' . $faq[$k]["shirtName"] . '</span><br>';
  $output .= '<span class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</span>';
  $output.= "<div class='cover_imgShirt'>".
-                    "<img id ='imgshirt' src='uploads/".$faq[$k]['image']."'/>".        
+ 				"<div class='container'>".
+                    "<img id ='imgshirt' src='uploads/".$faq[$k]['image']."'/>".
+                    "<div class='middle'>".
+                    		"<div class='text'>Buy Now</div>"
+                   ."</div>".
+                   "</div>".
                 "</div>";
  $output.="</div>";
   
@@ -47,7 +52,7 @@ foreach($faq as $k=>$v) {
 
 if(!empty($perpageresult)) {
 
-$output .= '<div id ="p" class="pagination" style="margin-left: -36px;">' . $perpageresult . '</div>';
+$output .= '<div id ="p" class="pagination" style="margin-left: -36px; height: 72px;">' . $perpageresult . '</div>';
 }
 // if($perpageresult > 14){
 // 	$output .= '<div id="pagelessrecord">' . $perpageresult . '</div>';

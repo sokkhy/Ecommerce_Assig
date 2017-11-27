@@ -31,6 +31,8 @@ if($pagination_setting == "prev-next") {
 
 
 $output = '';
+
+
 foreach($faq as $k=>$v) {
 
  $output.="<div class='col-sm-4'>";
@@ -42,9 +44,9 @@ foreach($faq as $k=>$v) {
                 "</div>";
  $output.="</div>";
   
+
+
 }
-
-
 if(!empty($perpageresult)) {
 
 $output .= '<div id ="p" class="pagination" style="margin-left: -36px;">' . $perpageresult . '</div>';

@@ -16,7 +16,7 @@
 
 
 		  <form class="form-inline form" action="upload.php" method="post" enctype="multipart/form-data" style="display: inline-grid;">
-		  	<select multiple name="brand[]">
+		<!--   <select name="brand">
 	   		<option value="adidas">Adidas</option>
 	   		<option value="nike">Nike</option>
 	   		<option value="gucci">Gucci</option>
@@ -28,12 +28,9 @@
 	   		<option value="hugo_boss">Hugo Boss</option>
 	   		<option value="under_armour">Under Armour</option>
 	   		<option value="puma">Puma</option>
-	   	</select>
+	   	</select> -->
 	   	
-<?php
-require_once("dbcontroller.php");
-
-?>
+<?php require_once("dbcontroller.php");?>
 		    <div class="form-group">
 		    
 		      Shirt Brand: <input type="text" class="form-control" id="shirt_name"  name="shirtname">
@@ -54,6 +51,7 @@ require_once("dbcontroller.php");
 			<div id="image-holder">Display image</div>
 		     
 		   </form> 
+
 		</div>
 	
   <script>
