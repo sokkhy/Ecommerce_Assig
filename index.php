@@ -62,6 +62,7 @@ function changePagination(option) {
 <BODY onscroll="myFunction()">
   
   <div id="main">
+  	
   	<?php include 'header.php';?>
 	<div id="overlay"><div><img src="loading.gif" width="64px" height="64px"/></div></div>
 	  <div class="page-content" style="margin-left: 100px; height:  1245px;">
@@ -83,6 +84,7 @@ function changePagination(option) {
 
 	 </div>
   </div>
+  <div id="1"></div>
 <?php include 'footer.php';?>
 <script>
 getresult("all_getresult.php");

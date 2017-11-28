@@ -183,13 +183,13 @@
                     <ul>
                         <li>
                             <div class="input-append newsletter-box text-center">
-                                <textarea rows="4" cols="50" style=" height: 200px; color: black;"></textarea>
+                                <textarea rows="4" cols="50" style=" height: 200px; color: black; resize: none;"></textarea>
                                 <button class="btn  bg-gray" type="button" style="color: red; font-weight: bold; background-color: white; width: 80px; height: 40px;"> Send <i class="fa fa-long-arrow-right"> </i> </button>
                             </div>
                         </li>
                     </ul>
                     <ul class="social">
-                    	<h4>Connect Us on Social Media</h4>
+                    	<h4>Find US on Social Media</h4>
                         <li> <a href="#"> <i class=" fa fa-facebook">   </i> </a> </li>
                         <li> <a href="#"> <i class="fa fa-twitter">   </i> </a> </li>
                         <li> <a href="#"> <i class="fa fa-google-plus">   </i> </a> </li>

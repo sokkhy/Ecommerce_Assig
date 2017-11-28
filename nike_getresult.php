@@ -31,23 +31,40 @@ if($pagination_setting == "prev-next") {
 
 
 $output = '';
+$i = 0;
 foreach($faq as $k=>$v) {
-
+ $i++;
  $output.="<div class='col-lg-4'>";
  $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
- $output .= ' <span class="shirt shirt_brand">Brand:' . $faq[$k]["shirtName"] . '</span><br>';
+ $output .= ' <span class="shirt shirt_brand">Brand: ' . $faq[$k]["shirtName"] . '</span><br>';
  $output .= '<span class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</span>';
  $output.= "<div class='cover_imgShirt'>".
  				"<div class='container'>".
-                    "<img id ='imgshirt' src='uploads/".$faq[$k]['image']."'/>".
+ 				 "<img class ='imgshirt "."pic".$i."' src='uploads/".$faq[$k]['image']."'/>".
                     "<div class='middle'>".
-                    		"<div class='text'>Buy Now</div>"
-                   ."</div>".
+
+                    		"<div class='text buy_now".$i."'>Buy Now</div>".
+                    		
+
+                   "</div>".
                    "</div>".
                 "</div>";
  $output.="</div>";
+ $output.="<script>".
+                    		"
+                    		$(document).ready(function(){
+                    			$('.buy_now".$i."').click(function(){
+                    			var a = $('.pic".$i."').attr('src');
+                    			 alert(a);
+                    			 return flase;
+                    });
+
+                   
+                })".
+                    		 "</script>";
   
 }
+
 
 
 if(!empty($perpageresult)) {

@@ -83,6 +83,7 @@ function changePagination(option) {
 <BODY onscroll="myFunction()">
   
   <div id="main">
+
   	<?php include 'header.php';?>
 	<div id="overlay"><div><img src="loading.gif" width="64px" height="64px"/></div></div>
 	  <div class="page-content" style="margin-left: 100px; height:  1245px;">
@@ -96,7 +97,9 @@ function changePagination(option) {
   <p>My first expression: {{ 5 + 5 }}</p>
 		</div>
  -->
-
+		<iframe id="iframe" src="" frameborder="0">
+			<img src="" id="pic">
+		</iframe>
 		<div class="row maindiv" id="pagination-result">
 			 
 			 	<input type="hidden" name="rowcount" id="rowcount" />

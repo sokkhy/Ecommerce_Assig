@@ -31,37 +31,42 @@ $_GET["rowcount"] = $db_handle->numRows($sql);
 
 
 $output = '';
- $i = 0;
+$i = 0;
 foreach($faq as $k=>$v) {
-$i++;
- $output.="<div class='col-lg-4'>";
- $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
- $output .= ' <span class="shirt shirt_brand">Brand: ' . $faq[$k]["shirtName"] . '</span><br>';
- $output .= '<span class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</span>';
- $output.= "<div class='cover_imgShirt'>".
- 				"<div class='container'>".
- 				 "<img class ='imgshirt "."pic".$i."' src='uploads/".$faq[$k]['image']."'/>".
-                    "<div class='middle'>".
+     $i++;
+     $output.="<div class='col-lg-4'>";
+     $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
+     $output .= ' <span class="shirt shirt_brand">Brand: ' . $faq[$k]["shirtName"] . '</span><br>';
+     $output .= '<span class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</span>';
+     $output.= "<div class='cover_imgShirt'>".
+     				"<div class='container'>".
+     				 "<img class ='imgshirt "."pic".$i."' src='uploads/".$faq[$k]['image']."'/>".
+                        "<div class='middle'>".
 
-                    		"<div class='text buy_now".$i."'>Buy Now</div>".
-                    		
+                        		"<div class='text buy_now".$i."'>Buy Now</div>".
+                        		
 
-                   "</div>".
-                   "</div>".
-                "</div>";
- $output.="</div>";
- $output.="<script>".
-                    		"
-                    		$(document).ready(function(){
-                    			$('.buy_now".$i."').click(function(){
-                    			var a = $('.pic".$i."').attr('src');
-                    			 alert(a);
-                    			 return flase;
-                    });
+                       "</div>".
+                       "</div>".
+                    "</div>";
+     $output.="</div>";
+     $output.="<script>".
+                    	"$(document).ready(function(){
+                			$('.buy_now".$i."').click(function(){
+                               var a = $('.pic".$i."').attr('src');
 
-                   
-                })".
-                    		 "</script>";
+                                 $('#iframe').css('display', 'block');
+                                $('#iframe').attr('src','http://localhost:8082/4Shops/shirtdetail.php');
+
+                                 $('#pics').attr('src',a);
+                                $('.maindiv').css('display','none');
+                                alert(a);
+
+                              
+                			
+                        }); 
+                    })".
+             "</script>";
   
 }
 
@@ -70,8 +75,5 @@ if(!empty($perpageresult)) {
 
 $output .= '<div id ="p" class="pagination" style="margin-left: -36px; height: 72px;">' . $perpageresult . '</div>';
 }
-// if($perpageresult > 14){
-// 	$output .= '<div id="pagelessrecord">' . $perpageresult . '</div>';
-// }
 print $output;
 ?>

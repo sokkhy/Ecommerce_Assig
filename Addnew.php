@@ -11,6 +11,7 @@
   <style><?php include 'style/style.css';?></style>
 </head>
 <body>
+	<?php include 'header.php';?>
 	
 	   <div class="container">
 
@@ -53,7 +54,7 @@
 		   </form> 
 
 		</div>
-	
+	<?php include 'footer.php';?>
   <script>
   $("#fileUpload").on('change', function () {
 

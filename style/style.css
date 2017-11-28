@@ -320,3 +320,9 @@ body{
     position: relative;
     width: 100%;
 }
+#iframe{
+    display: none;
+    margin: 0 auto;
+    width: 88%;
+    height: 100%;
+}
