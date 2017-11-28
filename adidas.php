@@ -24,14 +24,22 @@ function getresult(url) {
 	$.ajax({
 		url: url,
 		type: "GET",
-		data:  {rowcount:$("#rowcount").val(),"pagination_setting":$("#pagination-setting").val()},
+		data:  {
+			rowcount:$("#rowcount").val(),"pagination_setting":$("#pagination-setting").val()
+		},
 		beforeSend: function(){$("#overlay").show();},
 		success: function(data){
+			// buy_now(data);
 		$("#pagination-result").html(data);
-		setInterval(function() {$("#overlay").hide(); },500);
+		setInterval(function() {
+			$("#overlay").hide(); },500);
+			
 		},
+
 		error: function() 
-		{} 	        
+		{},
+		
+
    });
 }
 function changePagination(option) {
@@ -39,6 +47,15 @@ function changePagination(option) {
 		getresult("adidas_getresult.php");
 	}
 }
+
+// function buy_now(){
+// 	var img= <?php //echo json_encode($query); ?>
+// 	$.each(img, function(b,c){
+// 		var a = $(".buy_now").attr('src');
+// 	alert(a);
+// 	})
+		
+// }
 </script>
 <!-- <script>	
 			$(document).ready(function(){
@@ -92,11 +109,7 @@ function changePagination(option) {
 getresult("adidas_getresult.php");
 </script>
 
-<script>	
 
 
-
-
-</script>
 </BODY>
 </HTML>
