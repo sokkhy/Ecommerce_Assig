@@ -60,7 +60,7 @@ foreach($faq as $k=>$v) {
 
                                  $('#pics').attr('src',a);
                                 $('.maindiv').css('display','none');
-                                alert(a);
+                                alert('Comming Soon!');
 
                               
                 			

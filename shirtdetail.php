@@ -11,44 +11,7 @@
 	</style>
 </head>
 <body>
-	<script>
-		<script>
-function getresult(url) {
-	$.ajax({
-		url: url,
-		type: "GET",
-		data:  {
-			rowcount:$("#rowcount").val(),"pagination_setting":$("#pagination-setting").val()
-		},
-		beforeSend: function(){$("#overlay").show();},
-		success: function(data){
-			// buy_now(data);
-		
-			
-		},
-
-		error: function() 
-		{},
-		
-
-   });
-}
-function changePagination(option) {
-	if(option!= "") {
-		getresult("adidas_getresult.php");
-	}
-}
-
-// function buy_now(){
-// 	var img= <?php //echo json_encode($query); ?>
-// 	$.each(img, function(b,c){
-// 		var a = $(".buy_now").attr('src');
-// 	alert(a);
-// 	})
-		
-// }
-</script>
-	</script>
+	
 <div>
 	<img src="" id="pic">
 
@@ -63,9 +26,7 @@ function changePagination(option) {
 
 
 <script>
-	<?php
-include("adidas_getresult.php");
-?>
+
 </script>
 </body>
 </html>

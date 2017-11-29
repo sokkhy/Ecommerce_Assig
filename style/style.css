@@ -301,7 +301,7 @@ body{
   -ms-transform: translate(-50%, -50%)
 }
 
-.container:hover #imgshirt {
+.container:hover .imgshirt {
   opacity: 0.3;
 }
 
@@ -310,11 +310,13 @@ body{
 }
 
 .text {
-  background-color: darkred;
-  color: white;
-  font-size: 16px;
-  padding: 16px 32px;
-  border-radius: 10px;
+      background-color: darkred;
+    color: white;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    width: 91px;
+    height: 44px;
 }
 .container {
     position: relative;
