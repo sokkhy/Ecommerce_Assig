@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("dbcontroller.php");
 require_once("pagination.class.php");
 $db_handle = new DBController();
@@ -54,16 +55,12 @@ foreach($faq as $k=>$v) {
                     	"$(document).ready(function(){
                 			$('.buy_now".$i."').click(function(){
                                var a = $('.pic".$i."').attr('src');
-
-                                 $('#iframe').css('display', 'block');
-                                $('#iframe').attr('src','http://localhost:8082/4Shops/shirtdetail.php');
-
-                                 $('#pics').attr('src',a);
+                                var link = a.replace(' ' , '%20');
+                        
+                                window.location.href = 'http://localhost:8082/4Shops/shirtdetail.php?src='+a;
+                                 $('#pic').attr('src',a);
                                 $('.maindiv').css('display','none');
-                                alert('Comming Soon!');
 
-                              
-                			
                         }); 
                     })".
              "</script>";

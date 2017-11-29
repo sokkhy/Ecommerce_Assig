@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+$outputs= isset($_SESSION['output'])?$_SESSION['output']:''; //checks and sets value
+echo $outputs; //outputs value
+
+?>
 <HTML>
 <HEAD>
 <TITLE>4Shops</TITLE>
@@ -75,8 +82,7 @@ function changePagination(option) {
   <p>My first expression: {{ 5 + 5 }}</p>
 		</div>
  -->
-
-		<div class="row maindiv" id="pagination-result">
+	<div class="row maindiv" id="pagination-result">
 			 
 			 	<input type="hidden" name="rowcount" id="rowcount" />
 		</div>

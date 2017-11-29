@@ -82,6 +82,7 @@ function changePagination(option) {
 		</div>
 
 	 </div>
+	 
   </div>
 <?php include 'footer.php';?>
 <script>
