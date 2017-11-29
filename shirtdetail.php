@@ -35,7 +35,15 @@ echo $outputs; //outputs value
 		<div>
 			 <?php
 			 $link = str_replace(" ", '%20',$_GET['src']);
-			 echo "<img src=".$link." id='pic'>";
+			 $name = $_GET['name'];
+			 $price =$_GET['price'];
+			 $output="";
+			 $output.="<div class='shirtdetail'>";
+			 $output.= "<div>".$name."</div>" 
+			 ."<div>".$price."</div>"
+			 ."<div><img src=".$link." id='pic'></div>";
+			 $output.="</div>";
+			 print($output);
 			?>
 		</div>
  </div>

@@ -58,12 +58,12 @@ foreach($faq as $k=>$v) {
                                var img_scr = $('.pic".$i."').attr('src');
                                var _price =$('.shirt_price".$i."').text();
                                 var _name =$('.shirt_name".$i."').text();
-                                var link = img_scr.replace(' ' , '%20');                    
-                                window.location.href = 'http://localhost:8082/4Shops/shirtdetail.php?src='+img_scr;
+                                               
+                               var p = window.location.href = 'http://localhost:8082/4Shops/shirtdetail.php?src='+img_scr+'&name='+_name+'&price='+_price;
                                  $('#pic').attr('src',img_scr);
                                 $('.maindiv').css('display','none');
-                                alert(_price);
-                                alert(_name);
+                                
+                             
   
                         }); 
                     })".

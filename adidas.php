@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+$outputs= isset($_SESSION['output'])?$_SESSION['output']:''; //checks and sets value
+echo $outputs; //outputs value
+
+?>
 <HTML>
 <HEAD>
 <TITLE>4Shops</TITLE>
@@ -98,7 +105,7 @@ function changePagination(option) {
 		</div>
  -->
 		<iframe id="iframe" src="" frameborder="0">
-			<img src="" id="pic">
+			
 		</iframe>
 		<div class="row maindiv" id="pagination-result">
 			 
