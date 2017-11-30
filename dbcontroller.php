@@ -44,7 +44,7 @@ class DBController {
       die("Connection failed: " . $conn->connect_error);
   } 
   // use prepared statment to insert data
-  $stmt = $conn->prepare("INSERT INTO tommy_hilfiger (shirtName, shirtSize, Price, image) VALUES (?, ?, ?,?)");
+  $stmt = $conn->prepare("INSERT INTO puma (shirtName, shirtSize, Price, image) VALUES (?, ?, ?,?)");
   $stmt->bind_param("ssss", $shirtName, $shirtSize, $Price, $image);
 
   //validate form 

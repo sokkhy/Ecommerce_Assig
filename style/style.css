@@ -32,16 +32,15 @@ body {
   text-decoration: none;
   font-size: 16px;
 
-
 }
 
-#navbar a:hover {
+div#navbar a:hover {
   background-color: #ddd;
   color: black;
 }
 
-#navbar a.active {
-  background-color: #4CAF50;
+div#navbar a:active {
+  background-color: #FF2B12;
   color: white;
 }
 
@@ -49,7 +48,7 @@ body {
   padding: 16px;
 }
 .stick{
-	 position: fixed;
+	position: fixed;
   top: 0px;
   width: 100%
 }
@@ -135,6 +134,7 @@ table tr td{
 }
 .imgshirt{
     width: 100%;
+    cursor:pointer;
 }
 .cover_imgShirt{
     width: 70%;

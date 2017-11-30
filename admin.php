@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 	$host = "localhost";
 	 $user = "root";
 	 $password = "";
@@ -118,6 +118,7 @@ div.tab button.active {
 <div id="adidas" class="tabcontent">
 	<?php
 $output ="";
+$i = 0;
 $sql = "SELECT * FROM adidas";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -132,18 +133,32 @@ if ($result->num_rows > 0) {
 		   	<th colspan='4'>Action </th>
 		  </tr>";
  while($row = $result->fetch_assoc()) {
-
+$i++;
 		$output.= "<tr>".
-				"<td>". $row["id"]. "</td>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
 				"<td>". $row["shirtName"]."</td>".
 				"<td>". $row["shirtSize"]."</td>".
 				"<td>". $row["Price"]."</td>".
-				"<td><img src='uploads/".$row['image']."'/></td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
 				"<td>". $row["RegisterDate"]."</td>".
-				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-				"<td><button type='button' class='btn btn-warning'>Update</button></td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
 		  "</tr>";
 		  
+ 		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();
+							var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id;
+
+                            
+                             }); 
+                    })".
+             "</script>";
+
+                            
+                             
+
 
 
     }
@@ -155,6 +170,7 @@ $output.="</table>";
 
 
 ?>
+
 </div>
 <div id="nike" class="tabcontent">
 <?php
