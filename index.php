@@ -1,3 +1,18 @@
+<?php
+
+	$host = "localhost";
+	 $user = "root";
+	 $password = "";
+	 $database = "dbkeybest";
+
+  $conn = new mysqli($host, $user, $password, $database);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+?> 
 <HTML>
 <HEAD>
 <TITLE>4Shops</TITLE>
@@ -14,8 +29,54 @@
 		body{
 			    width: 100%;
 		}
+		hr.style-four {
+padding: 0;
+border: none;
+border-top: medium double #333;
+color: #333;
+text-align: center;
+margin-top: 57px;
+width: 93%;
+}
+hr.style-four:after {
+    content: attr(data-content);
+    display: inline-block;
+    position: relative;
+    top: -35px;
+    font-size: 2.5em;
+    padding: 0 0.25em;
+    background: #919400;
+    height: 54px;
+    border-radius: 17px;
+}
+.button {
+     background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 13px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 131px;
+    border-radius: 12px;  
+}
+.button:hover{
+	background: darkgreen;
+	padding: 13px 20px;
+	color: white;
+	width: 131px;
+	text-decoration: none;
+}
+.show{
+	    margin-left: 40px;
 	</style>
-<script>
+}
+
+
+<!-- <script>
 function getresult(url) {
 	$.ajax({
 		url: url,
@@ -35,66 +96,360 @@ function changePagination(option) {
 		getresult("all_getresult.php");
 	}
 }
-</script>
-<!-- <script>	
-			$(document).ready(function(){
-				$(".link").click(function(){
-
-				
-				setTimeout(function() {
-		                if($(".maindiv").children().length>10){
-					alert($(".maindiv").children().length);
-					 $("#p").remove("pagination");			
-				}
-				else if($(".maindiv").children().length<10){
-					$("#p").addClass("pagelessrecord");}
-		            },
-		            100);
-				});
-				
-
-
-
-			})
-		
-	</script> -->
+</script> -->
 </HEAD>
 <BODY onscroll="myFunction()">
   
-  <div id="main">
-  	
-  	<?php include 'header.php';?>
-	<div id="overlay"><div><img src="loading.gif" width="64px" height="64px"/></div></div>
-	  <div class="page-content" style="margin-left: 100px; height:  1245px;">
-		<div id="paging-setting" style="">
-		Pagination Setting:<br> <select name="pagination-setting" onChange="changePagination(this.value);" class="pagination-setting" id="pagination-setting">
-			<option value="all-links">Display All Page Link</option> 
-			<!-- <option value="prev-next">Display Prev Next Only</option> -->
-			</select>
-		</div>
-<!-- 		<div ng-app="">
-  <p>My first expression: {{ 5 + 5 }}</p>
-		</div>
- -->
+<div id="main">
+<?php include 'header.php';?>
+	<div class="show show_adidas">
+		<hr class="style-four" data-content="ADIDAS">
+		
+			<?php
+			$output ="";
+			$sql = "SELECT * FROM adidas LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+			$output.="<div class='row'>";
+			while($row = $result->fetch_assoc()) {
 
-		<div class="row maindiv" id="pagination-result">
-			 
-			 	<input type="hidden" name="rowcount" id="rowcount" />
-		</div>
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+							"</div>";
 
-	 </div>
-  </div>
-  <div id="1"></div>
+
+
+			}
+			} else {
+			echo "No Data";
+			}
+			$output.="</div>";
+			print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/adidas.php" class="button">More Adidas</a>
+	</div>
+</div>
+	<div class="show show_nike">
+		<hr class="style-four" data-content="NIKE">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM nike LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/nike.php" class="button">More Nike</a>
+	</div>
+	</div>
+	<div class="show show_gucci">
+		<hr class="style-four" data-content="GUCCI">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM gucci LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>		
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/gucci.php" class="button">More Gucci</a>
+	</div>
+	</div>
+	<div class="show show_prada">
+		<hr class="style-four" data-content="PRADA">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM prada LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/prada.php" class="button">More Prada</a>
+	</div>
+	</div>
+	<div class="show show_supreme">
+		<hr class="style-four" data-content="SUPREME">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM supreme LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/supreme.php" class="button" style="width: 145px;">More Supreme</a>
+	</div>
+	</div>
+	<div class="show show_tommy_hilfiger">
+		<hr class="style-four" data-content="TOMMY HILFIGER">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM tommy_hilfiger LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' class='img class='imgshirt' style='width:60%;'shirt' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?><div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/tommy_hilfiger.php" class="button" style="width: 193px;">More Tommy Hilfiger</a>
+	</div>
+	</div>
+	<div class="show show_versace">
+		<hr class="style-four" data-content="VERSACE">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM versace LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/versace.php" class="button" style="width: 139px;">More Versace</a>
+	</div>
+	</div>
+	<div class="show show_diesel">
+		<hr class="style-four" data-content="DIESEL">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM diesel LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/diesel.php" class="button">More Diesel</a>
+	</div>
+	</div>
+	<div class="show show_hugo_boss">
+		<hr class="style-four" data-content="HUGO BOSS">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM hugo_boss LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/hugo_boss.php" class="button" style="width: 159px;">More Hugo Boss</a>
+	</div>
+	</div>
+	<div class="show show_under_armour">
+		<hr class="style-four" data-content="UNDER ARMOUR">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM under_armour LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/under_armour.php" class="button" style="width: 190px;">More Under Armour</a>
+	</div>
+	</div>
+	<div class="show show_puma">
+		<hr class="style-four" data-content="PUMA">
+		<?php
+			$output ="";
+			$sql = "SELECT * FROM puma LIMIT 6";
+			$result = $conn->query($sql);
+			if ($result->num_rows > 0) {
+				$output.="<div class='row'>";
+			 while($row = $result->fetch_assoc()) {
+
+			$output.= "<div class='col-lg-4'>".
+							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
+							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
+							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
+							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
+							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
+					  "</div>";
+					  
+
+
+			    }
+			} else {
+			    echo "No Data";
+			}
+			$output.="</div>";
+			 print($output);
+?>
+	<div style="margin-left: 633px;margin-top: 34px;">
+		<a href="http://localhost:8082/4Shops/puma.php" class="button" style="width: 146px;">More Puma SE</a>
+	</div>
+	</div>
+</div>
+ 
 <?php include 'footer.php';?>
-<script>
+<!-- <script>
 getresult("all_getresult.php");
-</script>
-
-<script>	
+</script> -->
 
 
-
-
-</script>
 </BODY>
 </HTML>

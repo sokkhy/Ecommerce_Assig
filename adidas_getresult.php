@@ -38,6 +38,7 @@ foreach($faq as $k=>$v) {
  $output.="<div class='col-lg-4'>";
  $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
  $output .= "<span class='shirt shirt_brand "."shirt_name".$i."'>Brand: " . $faq[$k]['shirtName'] . "</span><br>";
+ $output .= "<span class='shirt shirt_size "."shirt_size".$i."'>Size: " . $faq[$k]['shirtSize'] ."</span><br>";
  $output .= "<span class='shirt shirt_price "."shirt_price".$i."'>Price: <span>" . $faq[$k]['Price'] ."</span>". "</span>";
  $output.= "<div class='cover_imgShirt'>".
                 "<div class='container'>".

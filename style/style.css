@@ -233,13 +233,11 @@ body{
 }
 
 .pagination{
-
     padding-top: 30px;
     border-top: #F0F0F0 1px solid;
     height: 100px;
     float: left;
-    margin-top: 104px;
-    
+    margin-top: 33px;   
 }
 .dot {
   padding: 10px 15px;
