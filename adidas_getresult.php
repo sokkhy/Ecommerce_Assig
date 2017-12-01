@@ -33,6 +33,7 @@ $_GET["rowcount"] = $db_handle->numRows($sql);
 
 $output = '';
 $i = 0;
+if($faq >0){
 foreach($faq as $k=>$v) {
  $i++;
  $output.="<div class='col-lg-4'>";
@@ -46,13 +47,11 @@ foreach($faq as $k=>$v) {
                     "<div class='middle'>".
 
                             "<div class='text buy_now".$i."'>Buy Now</div>".
-                            
-
                    "</div>".
                    "</div>".
                 "</div>";
  $output.="</div>";
-  $output.="<script>".
+ $output.="<script>".
                         "$(document).ready(function(){
                             $('.buy_now".$i."').click(function(){
                                 
@@ -70,6 +69,10 @@ foreach($faq as $k=>$v) {
                     })".
              "</script>";
 
+}
+ } 
+else{
+  echo "<h1> Shirt is Comming soon!</h1>";
 }
 
 

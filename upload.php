@@ -1,5 +1,5 @@
  <?php
-require_once("dbcontroller.php");
+require_once("Addnew.php");
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

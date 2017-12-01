@@ -102,17 +102,17 @@ div.tab button.active {
 <h1 style="color: red;">ADMIN</h1>
 
 <div class="tab">
-  <button class="tablinks" onclick="eachbrand(event, 'adidas')">Adidas</button>
-  <button class="tablinks" onclick="eachbrand(event, 'nike')">Nike</button>
-  <button class="tablinks" onclick="eachbrand(event, 'gucci')">Gucci</button>
-  <button class="tablinks" onclick="eachbrand(event, 'prada')">Prada</button>
-  <button class="tablinks" onclick="eachbrand(event, 'supreme')">Supreme</button>
-  <button class="tablinks" onclick="eachbrand(event, 'tommy_hilfiger')">Tommy Hilfiger</button>
-  <button class="tablinks" onclick="eachbrand(event, 'versace')">Versace</button>
-  <button class="tablinks" onclick="eachbrand(event, 'diesel')">Diesel</button>
-  <button class="tablinks" onclick="eachbrand(event, 'hugo_boss')">Hugo Boss</button>
-  <button class="tablinks" onclick="eachbrand(event, 'under_armour')">Under Armour</button>
-  <button class="tablinks" onclick="eachbrand(event, 'puma')">Puma SE</button>
+  <button class="tablinks" onclick="eachbrand(event, 'adidas')" value="adidas">Adidas</button>
+  <button class="tablinks" onclick="eachbrand(event, 'nike')" value="nike">Nike</button>
+  <button class="tablinks" onclick="eachbrand(event, 'gucci')" value="gucci">Gucci</button>
+  <button class="tablinks" onclick="eachbrand(event, 'prada')" value="prada">Prada</button>
+  <button class="tablinks" onclick="eachbrand(event, 'supreme')" value="supreme">Supreme</button>
+  <button class="tablinks" onclick="eachbrand(event, 'tommy_hilfiger')" value="tommy_hilfiger">Tommy Hilfiger</button>
+  <button class="tablinks" onclick="eachbrand(event, 'versace')" value="versace">Versace</button>
+  <button class="tablinks" onclick="eachbrand(event, 'diesel')" value="diesel">Diesel</button>
+  <button class="tablinks" onclick="eachbrand(event, 'hugo_boss')" value="hugo_boss">Hugo Boss</button>
+  <button class="tablinks" onclick="eachbrand(event, 'under_armour')" value="under_armour">Under Armour</button>
+  <button class="tablinks" onclick="eachbrand(event, 'puma')" value="puma">Puma SE</button>
 </div>
 
 <div id="adidas" class="tabcontent">
@@ -148,21 +148,15 @@ $i++;
  		$output.="<script>".
                         "$(document).ready(function(){
                             $('.btn_delete".$i."').click(function(){
-                               var _id = $('#shi_code".$i."').text();
-							var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id;
+                               var _id = $('#shi_code".$i."').text();                          
+								var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'adidas';
 
                             
                              }); 
                     })".
              "</script>";
-
-                            
-                             
-
-
-
     }
-} else {
+	} else {
     echo "No Data";
 }
 $output.="</table>";
@@ -178,37 +172,45 @@ $output.="</table>";
 	$sql = "SELECT * FROM nike";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		  
+ 	$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();                          
+								var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'nike';
 
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+                            
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
 
 
 ?>
@@ -220,38 +222,44 @@ $output.="</table>";
 	$sql = "SELECT * FROM gucci";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();
+                               var _brand =$('.tablinks').val();
+							var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'gucci';
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
-	
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
+
 
 ?>
 </div>
@@ -261,38 +269,44 @@ $output.="</table>";
 	$sql = "SELECT * FROM prada";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();
+                               var _brand =$('.tablinks').val();
+							var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'prada';
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
-	
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
+
 
 ?>
 </div>
@@ -303,38 +317,44 @@ $output.="</table>";
 	$sql = "SELECT * FROM supreme";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();
+                               var _brand =$('.tablinks').val();
+							var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'supreme';
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
-	
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
+
 
 ?>
 </div>
@@ -345,37 +365,43 @@ $output.="</table>";
 	$sql = "SELECT * FROM tommy_hilfiger";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+	$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();                          
+								var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'tommy_hilfiger';
+                            
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
 
 
 ?>
@@ -386,37 +412,43 @@ $output.="</table>";
 	$sql = "SELECT * FROM versace";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();
+                               var _brand =$('.tablinks').val();
+							var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'versace';
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
 
 
 ?>
@@ -428,40 +460,47 @@ $output.="</table>";
 	$sql = "SELECT * FROM diesel";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		  
+ 		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();                          
+								var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'diesel';
+                            
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
-	
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
 
-?> 
+
+?>
 </div>
 
 <div id="hugo_boss" class="tabcontent">
@@ -470,37 +509,44 @@ $output.="</table>";
 	$sql = "SELECT * FROM hugo_boss";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		  
+ 		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();                          
+								var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'hugo_boss';
+                            
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
 
 
 ?>
@@ -511,37 +557,44 @@ $output.="</table>";
 	$sql = "SELECT * FROM under_armour";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		  
+ 		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();                          
+								var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'under_armour';
+                            
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
 
 
 ?>
@@ -553,38 +606,44 @@ $output.="</table>";
 	$sql = "SELECT * FROM puma";
 	$result = $conn->query($sql);
 	if ($result->num_rows > 0) {
-	   $output.= "<table id='customers'>".
-			  "<tr>
-			  	<th style='width:90px; text-align:center;'>Shirt Code</th>
-			    <th style='width:300px;'>Shirt Name</th>
-			    <th style='width:91px;'>Shirt Size</th>
-			    <th style='width: 91px;'>Shirt Price</th>
-			    <th style='width:390px;'>Shirt Image</th>
-			    <th style='width:168px;'>Added Date</th>
-			   	<th colspan='4'>Action </th>
-			  </tr>";
-	 while($row = $result->fetch_assoc()) {
-
-			$output.= "<tr>".
-					"<td>". $row["id"]. "</td>".
-					"<td>". $row["shirtName"]."</td>".
-					"<td>". $row["shirtSize"]."</td>".
-					"<td>". $row["Price"]."</td>".
-					"<td><img src='uploads/".$row['image']."'/></td>".
-					"<td>". $row["RegisterDate"]."</td>".
-					"<td style='width:'colspan='2'><button type='button' class='btn btn-danger'>Delete</button></td>".
-					"<td><button type='button' class='btn btn-warning'>Update</button></td>".
-			  "</tr>";
-			  
-
-
-	    }
+   $output.= "<table id='customers'>".
+		  "<tr>
+		  	<th style='width:90px; text-align:center;'>Shirt Code</th>
+		    <th style='width:300px;'>Shirt Name</th>
+		    <th style='width:91px;'>Shirt Size</th>
+		    <th style='width: 91px;'>Shirt Price</th>
+		    <th style='width:390px;'>Shirt Image</th>
+		    <th style='width:168px;'>Added Date</th>
+		   	<th colspan='4'>Action </th>
+		  </tr>";
+ while($row = $result->fetch_assoc()) {
+$i++;
+		$output.= "<tr>".
+				"<td id='shi_code".$i."'>". $row["id"]. "</td>".
+				"<td>". $row["shirtName"]."</td>".
+				"<td>". $row["shirtSize"]."</td>".
+				"<td>". $row["Price"]."</td>".
+				"<td><img class='f".$i."' src='uploads/".$row['image']."'/></td>".
+				"<td>". $row["RegisterDate"]."</td>".
+				"<td style='width:'colspan='2'><button type='button' class='btn btn-danger btn_delete".$i."'>Delete</button></td>".
+				"<td><button type='button' class='btn btn-warning btn_update'>Update</button></td>".
+		  "</tr>";
+		$output.="<script>".
+                        "$(document).ready(function(){
+                            $('.btn_delete".$i."').click(function(){
+                               var _id = $('#shi_code".$i."').text();
+                               var _brand =$('.tablinks').val();
+							var p = window.location.href = 'http://localhost:8082/4Shops/delete.php?src='+_id+'&brand='+'puma';
+                             }); 
+                    })".
+             "</script>";
+    }
 	} else {
-	    echo "No Data";
-	}
-	$output.="</table>";
-	 print($output);
-	$conn->close();
+    echo "No Data";
+}
+$output.="</table>";
+ print($output);
+
 
 ?>
 </div>

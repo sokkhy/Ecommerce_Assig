@@ -32,7 +32,7 @@ function getresult(url) {
 }
 function changePagination(option) {
 	if(option!= "") {
-		getresult("getresult.php");
+		getresult("under_armour_getresult.php");
 	}
 }
 </script>

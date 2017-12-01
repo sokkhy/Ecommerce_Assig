@@ -1,12 +1,13 @@
 <?php
+session_start();
 require_once("dbcontroller.php");
 require_once("pagination.class.php");
 $db_handle = new DBController();
 $perPage = new PerPage();
 
 $sql = "SELECT * from puma";
-$paginationlink = "getresult.php?page=";	
-// $pagination_setting = $_GET["pagination_setting"];
+$paginationlink = "puma_getresult.php?page=";	
+$pagination_setting = $_GET["pagination_setting"];
 				
 $page = 1;
 if(!empty($_GET["page"])) {
@@ -23,34 +24,60 @@ if(empty($_GET["rowcount"])) {
 $_GET["rowcount"] = $db_handle->numRows($sql);
 }
 
-// if($pagination_setting == "prev-next") {
-// 	$perpageresult = $perPage->getPrevNext($_GET["rowcount"], $paginationlink,$pagination_setting);	
-// } else {
-// 	$perpageresult = $perPage->getAllPageLinks($_GET["rowcount"], $paginationlink,$pagination_setting);	
-// }
+ if($pagination_setting == "prev-next") {
+	$perpageresult = $perPage->getPrevNext($_GET["rowcount"], $paginationlink,$pagination_setting);	
+} else {
+ 	$perpageresult = $perPage->getAllPageLinks($_GET["rowcount"], $paginationlink,$pagination_setting);	
+ }
 
 
 $output = '';
+$i = 0;
+if($faq >0){
 foreach($faq as $k=>$v) {
-
- $output.="<div class='col-sm-4'>";
+ $i++;
+ $output.="<div class='col-lg-4'>";
  $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
- $output .= ' <span class="shirt shirt_brand">Brand:' . $faq[$k]["shirtName"] . '</span><br>';
- $output .= '<span class="shirt shirt_price">Price: <span>' . $faq[$k]["Price"] .'</span>'. '</span>';
+ $output .= "<span class='shirt shirt_brand "."shirt_name".$i."'>Brand: " . $faq[$k]['shirtName'] . "</span><br>";
+ $output .= "<span class='shirt shirt_size "."shirt_size".$i."'>Size: " . $faq[$k]['shirtSize'] ."</span><br>";
+ $output .= "<span class='shirt shirt_price "."shirt_price".$i."'>Price: <span>" . $faq[$k]['Price'] ."</span>". "</span>";
  $output.= "<div class='cover_imgShirt'>".
-                    "<img id ='imgshirt' src='uploads/".$faq[$k]['image']."'/>".        
+                "<div class='container'>".
+                 "<img class ='imgshirt "."pic".$i."' src='uploads/".$faq[$k]['image']."'/>".
+                    "<div class='middle'>".
+
+                            "<div class='text buy_now".$i."'>Buy Now</div>".
+                   "</div>".
+                   "</div>".
                 "</div>";
  $output.="</div>";
+ $output.="<script>".
+                        "$(document).ready(function(){
+                            $('.buy_now".$i."').click(function(){
+                                
+                               var img_scr = $('.pic".$i."').attr('src');
+                               var _price =$('.shirt_price".$i."').text();
+                                var _name =$('.shirt_name".$i."').text();
+                                               
+                               var p = window.location.href = 'http://localhost:8082/4Shops/shirtdetail.php?src='+img_scr+'&name='+_name+'&price='+_price;
+                                 $('#pic').attr('src',img_scr);
+                                $('.maindiv').css('display','none');
+                                
+                             
   
-}
+                        }); 
+                    })".
+             "</script>";
 
+}
+ } 
+else{
+  echo "<h1> Shirt is Comming soon!</h1>";
+}
 
 if(!empty($perpageresult)) {
 
-$output .= '<div id ="p" class="pagination" style="margin-left: -36px;">' . $perpageresult . '</div>';
+$output .= '<div id ="p" class="pagination" style="margin-left: -36px; height: 72px;">' . $perpageresult . '</div>';
 }
-// if($perpageresult > 14){
-// 	$output .= '<div id="pagelessrecord">' . $perpageresult . '</div>';
-// }
 print $output;
 ?>

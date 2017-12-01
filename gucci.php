@@ -32,7 +32,7 @@ function getresult(url) {
 }
 function changePagination(option) {
 	if(option!= "") {
-		getresult("getresult.php");
+		getresult("gucci_getresult.php");
 	}
 }
 </script>

@@ -33,12 +33,13 @@ if($pagination_setting == "prev-next") {
 
 $output = '';
 $i = 0;
+if($faq >0){
 foreach($faq as $k=>$v) {
  $i++;
  $output.="<div class='col-lg-4'>";
  $output .= '<span class="shirt shirt_code">Shirt_Code: <input type="hidden" id="rowcount" name="rowcount" value="' . $_GET["rowcount"] . '" />' . $faq[$k]["id"] . '</span> <br>';
  $output .= "<span class='shirt shirt_brand "."shirt_name".$i."'>Brand: " . $faq[$k]['shirtName'] . "</span><br>";
- $output .= "<span class='shirt shirt_size "."shirt_size".$i."'>Size:" . $faq[$k]['shirtSize'] ."</span><br>";
+ $output .= "<span class='shirt shirt_size "."shirt_size".$i."'>Size: " . $faq[$k]['shirtSize'] ."</span><br>";
  $output .= "<span class='shirt shirt_price "."shirt_price".$i."'>Price: <span>" . $faq[$k]['Price'] ."</span>". "</span>";
  $output.= "<div class='cover_imgShirt'>".
                 "<div class='container'>".
@@ -46,13 +47,11 @@ foreach($faq as $k=>$v) {
                     "<div class='middle'>".
 
                             "<div class='text buy_now".$i."'>Buy Now</div>".
-                            
-
                    "</div>".
                    "</div>".
                 "</div>";
  $output.="</div>";
-  $output.="<script>".
+ $output.="<script>".
                         "$(document).ready(function(){
                             $('.buy_now".$i."').click(function(){
                                 
@@ -71,8 +70,10 @@ foreach($faq as $k=>$v) {
              "</script>";
 
 }
-
-
+ } 
+else{
+  echo "<h1> Shirt is Comming soon!</h1>";
+}
 
 
 if(!empty($perpageresult)) {

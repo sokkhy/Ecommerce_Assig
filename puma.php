@@ -20,7 +20,9 @@ function getresult(url) {
 	$.ajax({
 		url: url,
 		type: "GET",
-		data:  {rowcount:$("#rowcount").val(),"pagination_setting":$("#pagination-setting").val()},
+		data:  {
+			rowcount:$("#rowcount").val(),"pagination_setting":$("#pagination-setting").val()
+		},
 		beforeSend: function(){$("#overlay").show();},
 		success: function(data){
 		$("#pagination-result").html(data);
