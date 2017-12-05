@@ -41,10 +41,11 @@ if ($result->num_rows > 0) {
     
        $output.= "Shirt Name: <input type='text' class='form-control' id='shirt_id'  name='shirtid' value='".$row["id"]."' readonly>".
         "Shirt Size: <input type='text' class='form-control' id='shirt_size'  name='shirtsize' value='".$row["shirtSize"]."'>".
-          "Shirt Name: <input type='text' class='form-control' id='shirt_name'  name='shirtsize' value='".$row["shirtName"]."'>".
-          "Shirt Price: <input type='text' class='form-control' id='shirt_price'  name='shirtsize' value='".$row["Price"]."'>".
+          "Shirt Name: <input type='text' class='form-control' id='shirt_name'  name='shirtname' value='".$row["shirtName"]."'>".
+          "Shirt Price: <input type='text' class='form-control' id='shirt_price'  name='shirtprice' value='".$row["Price"]."'>".
         "<td><img class='shi_img' src='uploads/".$row['image']."'/></td>".
         "<td>". $row["RegisterDate"]."</td>".
+        "<input type='submit' value='Submit' style='width: 90px;'>".
       "</tr>";
       }
   } else {
@@ -137,4 +138,42 @@ if ($uploadOk == 0) {
     }
 }
 }
+?>
+<?php
+ 
+if(isset($_POST["submit"])) {
+  $host = "localhost";
+   $user = "root";
+   $password = "";
+   $database = "dbkeybest";
+
+  $conn = new mysqli($host, $user, $password, $database);
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+   
+
+$sql = "UPDATE $brand  SET shirtName ='$sName', 
+shirtSize='$sSize',
+Price ='$simage',
+image='$simage'
+where id = $shid ";
+  if(!empty($_POST['sname']) && !empty($_POST['size']) && !empty($_POST['price']) && !empty($_FILES["fileToUpload"]["name"])){
+    $sName = $_POST["shirtname"];
+    $sSize=$_POST["shirtsize"];
+    $sPrice = $_POST["shirtprice"];
+    $simage= $_FILES["fileToUpload"]["name"];
+     $stmt->execute();
+  
+    header('Location:http://localhost:8082/4Shops/index.php');
+    } 
+if ($conn->query($sql) === TRUE) {
+    echo "Record updated successfully";
+} else {
+    echo "Error updating record: " . $conn->error;
+}
+$conn->close();
+}
+
 ?>
