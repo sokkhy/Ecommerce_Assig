@@ -1,76 +1,61 @@
-<?php
- session_start();
 
-	$host = "localhost";
-	 $user = "root";
-	 $password = "";
-	 $database = "dbkeybest";
+<?php
+
+ session_start();
+$host = "localhost";
+   $user = "root";
+   $password = "";
+   $database = "dbkeybest";
 
   $conn = new mysqli($host, $user, $password, $database);
-  // Check connection
   if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  } 
-  $puma ='puma';
-  $ins_brand = $_GET["sh_brand"];
+    die("Connection failed: " . $conn->connect_error);
+  }
+$brand = $_GET['brand'];
+  $shid = $_GET['idU'];
+ $sql = "SELECT * FROM $brand where id = $shid";
+ $result = $conn->query($sql);
+$row = $result->fetch_assoc();
+ ?>
 
-  // use prepared statment to insert data
-  $stmt = $conn->prepare("INSERT INTO $ins_brand (shirtName, shirtSize, Price, image) VALUES (?, ?, ?,?)");
-  $stmt->bind_param("ssss", $shirtName, $shirtSize, $Price, $image);
-
-  //validate form 
-  if(!empty($_POST['shirtname']) && !empty($_POST['shirtsize']) && !empty($_POST['price']) && !empty($_FILES["fileToUpload"]["name"])){
-   
-    $shirtName = $_POST["shirtname"];
-    $shirtSize=$_POST["shirtsize"];
-    $Price = $_POST["price"];
-    $image= $_FILES["fileToUpload"]["name"];
-    $stmt->execute();
-    // header('Location:http://localhost:8082/4Shops/index.php');
-    } 
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Add New</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Document</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <style><?php include 'style/style.css';?></style>
 </head>
 <body>
-
-	
-	   <div class="container" style="width: 60%;">
 <?php
-  echo "<h1>Add new shirt to $ins_brand</h1>";
+$output ="";
+$result = $conn->query($sql);
+if ($result->num_rows > 0) {
+   $output.= "<form class='form-inline form' action='' method='post' enctype='multipart/form-data' style='display: inline-grid;''>";
+      
+ while($row = $result->fetch_assoc()) {
+
+    
+       $output.= "Shirt Name: <input type='text' class='form-control' id='shirt_id'  name='shirtid' value='".$row["id"]."' readonly>".
+        "Shirt Size: <input type='text' class='form-control' id='shirt_size'  name='shirtsize' value='".$row["shirtSize"]."'>".
+          "Shirt Name: <input type='text' class='form-control' id='shirt_name'  name='shirtsize' value='".$row["shirtName"]."'>".
+          "Shirt Price: <input type='text' class='form-control' id='shirt_price'  name='shirtsize' value='".$row["Price"]."'>".
+        "<td><img class='shi_img' src='uploads/".$row['image']."'/></td>".
+        "<td>". $row["RegisterDate"]."</td>".
+      "</tr>";
+      }
+  } else {
+    echo "No Data";
+}
+$output.="</form>";
+ print($output);
+
+
 ?>
 
-		  <form class="form-inline form" action="" method="post" enctype="multipart/form-data" style="display: inline-grid;">
-		    <div class="form-group">
-		    
-		      Shirt Name: <input type="text" class="form-control" id="shirt_name"  name="shirtname">
-		    </div>
-		    <div class="form-group">
-		      
-		      Shirt Size: <input type="text" class="form-control" name="shirtsize" id="shirt_size">
-		    </div>
-		    <div class="form-group">
-		      
-		      Price: <input type="text" class="form-control" id="shirt_price" name="price">
-		    </div>
-		    <div class="form-group">
-		      <input type="file" name="fileToUpload" id="fileUpload">
-			</div>
-			  <input type="submit" value="Submit" style="width: 90px;
-    margin-left: 10px;">
-			<div id="image-holder">Display image</div>
-		     
-		   </form> 
-
-		</div>
   <script>
   $("#fileUpload").on('change', function () {
 
