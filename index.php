@@ -132,17 +132,14 @@ function changePagination(option) {
 			$output.="<div class='row'>";
 			while($row = $result->fetch_assoc()) {
 
-			$output.= "<div class='col-lg-4'>".
+			$output.= "<div class='col-md-4'>".
 							"<span class='shirt'> Shirt_code: ". $row["id"]. "</span></br>".
 							"<span class='shirt'>Brand: ". $row["shirtName"]."</span></br>".
 							"<span class='shirt'>Size: ". $row["shirtSize"]."</span></br>".
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 							"</div>";
-
-
-
-			}
+			 }
 			} else {
 			echo "No Data";
 			}
@@ -170,9 +167,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
-
 			    }
 			} else {
 			    echo "No Data";
@@ -201,8 +195,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {
@@ -232,8 +224,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {
@@ -263,8 +253,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {
@@ -294,8 +282,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' class='img class='imgshirt' style='width:60%;'shirt' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {
@@ -324,8 +310,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {
@@ -355,8 +339,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {
@@ -386,8 +368,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {
@@ -417,9 +397,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
-
 			    }
 			} else {
 			    echo "No Data";
@@ -448,8 +425,6 @@ function changePagination(option) {
 							"<span class='shirt'>Price: <span>". $row["Price"]."</span>"."</span></br>".
 							"<span><img class='imgshirt' style='width:60%;' src='uploads/".$row['image']."'/></span>".			
 					  "</div>";
-					  
-
 
 			    }
 			} else {

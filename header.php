@@ -25,7 +25,7 @@
 	  <a href="prada.php" id="prada">Prada</a>
 	  <a href="supreme.php" id="supreme">Supreme</a>
 	  <a href="tommy_hilfiger.php" id="tommy_hilfiger">Tommy Hilfiger</a>
-	  <a href="diesel.php" id="versace">Versace</a>
+	  <a href="versace.php" id="versace">Versace</a>
 	  <a href="diesel.php" id="diesel">Diesel</a>
 	  <a href="hugo_boss.php" id="hugo_boss">Hugo Boss</a>
 	  <a href="under_armour.php" id="udner_armour">Under Armour</a>

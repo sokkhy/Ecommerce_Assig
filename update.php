@@ -1,7 +1,6 @@
 
 <?php
-
- session_start();
+session_start();
 $host = "localhost";
    $user = "root";
    $password = "";
@@ -32,21 +31,45 @@ $row = $result->fetch_assoc();
 <body>
 <?php
 $output ="";
+$i=0;
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
+
    $output.= "<form class='form-inline form' action='' method='post' enctype='multipart/form-data' style='display: inline-grid;''>";
       
  while($row = $result->fetch_assoc()) {
 
-    
-       $output.= "Shirt Name: <input type='text' class='form-control' id='shirt_id'  name='shirtid' value='".$row["id"]."' readonly>".
-        "Shirt Size: <input type='text' class='form-control' id='shirt_size'  name='shirtsize' value='".$row["shirtSize"]."'>".
-          "Shirt Name: <input type='text' class='form-control' id='shirt_name'  name='shirtname' value='".$row["shirtName"]."'>".
-          "Shirt Price: <input type='text' class='form-control' id='shirt_price'  name='shirtprice' value='".$row["Price"]."'>".
-        "<td><img class='shi_img' src='uploads/".$row['image']."'/></td>".
+    $i++;
+       $output.= "Shirt Name: <input type='text' class='form-control' id='shirt_id".$i."''  name='shirtid' value='".$row["id"]."' readonly>".
+        "Shirt Size: <input type='text' class='form-control' id='shirt_size".$i."''  name='shirtsize' value='".$row["shirtSize"]."'>".
+          "Shirt Name: <input type='text' class='form-control' id='shirt_name".$i."''  name='shirtname' value='".$row["shirtName"]."'>".
+          "Shirt Price: <input type='text' class='form-control' id='shirt_price".$i."''  name='shirtprice' value='".$row["Price"]."'>".
+        "<td><img class='shi_img shirtimage".$i."'' src='uploads/".$row['image']."'/></td>".
         "<td>". $row["RegisterDate"]."</td>".
-        "<input type='submit' value='Submit' style='width: 90px;'>".
-      "</tr>";
+        "<input type='button' id='submit".$i."' style='width: 90px;'>".
+        " <input type='file' name='fileToUpload' id='fileUpload'>".
+        "<div id='image-holder'>Display image</div>";
+      
+    $output.="<script>
+              $(document).ready(function(){
+    $('#submit".$i."').click(function(){
+
+              var idUpdate = $('#shirt_id".$i."').val();  
+                               var priceUpdate = $('#shirt_price".$i."').val();  
+                               var sizeUpdate =  $('#shirt_size".$i."').val();   
+                               var nameUpdate =  $('#shirt_name".$i."').val(); 
+                               var imgUpate = $('.shirtimage".$i."').attr('src');    
+                               window.location.href = 'http://localhost:8082/4Shops/test.php?idU='+idUpdate+'&SU='+sizeUpdate+'&NU='+nameUpdate+'&IU='+imgUpate+'&PU='+priceUpdate+'&brand='+'nike';      
+
+    });
+
+  })
+  </script>
+
+
+
+
+    ";
       }
   } else {
     echo "No Data";
@@ -86,13 +109,14 @@ $output.="</form>";
         alert("Pls select only images");
     }
 });
+  
 </script>
 
 </body>
 </html>
 <?php
 if(isset($_POST["submit"])) {
-$ins_brand = $_GET["sh_brand"];
+
 $target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -136,44 +160,6 @@ if ($uploadOk == 0) {
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
+ }
 }
-}
-?>
-<?php
- 
-if(isset($_POST["submit"])) {
-  $host = "localhost";
-   $user = "root";
-   $password = "";
-   $database = "dbkeybest";
-
-  $conn = new mysqli($host, $user, $password, $database);
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
-
-   
-
-$sql = "UPDATE $brand  SET shirtName ='$sName', 
-shirtSize='$sSize',
-Price ='$simage',
-image='$simage'
-where id = $shid ";
-  if(!empty($_POST['sname']) && !empty($_POST['size']) && !empty($_POST['price']) && !empty($_FILES["fileToUpload"]["name"])){
-    $sName = $_POST["shirtname"];
-    $sSize=$_POST["shirtsize"];
-    $sPrice = $_POST["shirtprice"];
-    $simage= $_FILES["fileToUpload"]["name"];
-     $stmt->execute();
-  
-    header('Location:http://localhost:8082/4Shops/index.php');
-    } 
-if ($conn->query($sql) === TRUE) {
-    echo "Record updated successfully";
-} else {
-    echo "Error updating record: " . $conn->error;
-}
-$conn->close();
-}
-
 ?>
